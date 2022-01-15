@@ -34,3 +34,9 @@ exports.fetchDelete = (req,res) => {
     }
     res.status(200).send(response)
 }
+exports.register = (req,res) => {
+    let response = {
+        status: true
+    }
+    res.status(200).send(response)
+}
