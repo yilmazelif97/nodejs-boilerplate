@@ -1,8 +1,10 @@
 const expressjwt = require("express-jwt");
 
-const secret = "";
+const secret = "deneme";
 
-exports.jwt = () => {
+module.exports=jwt;
+
+function jwt() {
   return expressjwt({
     secret,
     algorithms: ["HS256"],

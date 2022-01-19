@@ -1,14 +1,14 @@
-const errorHandler = require("errorhandler");
 
+module.exports = errorHandler
 
-exports.errorHandler =(err,req,res,next)=>{
-    if(typeof(err)=='string'){
+function errorHandler(err,req,res,next){
+    if(typeof(err)==='string'){
         return res.status(400).json({
             message:err
         })
     }
 
-    if(typeof(err.name)=='UnauthorizedError'){
+    if(typeof(err.name)==='UnauthorizedError'){
         return res.status(401).json({
             message:'Invalid token'
         })

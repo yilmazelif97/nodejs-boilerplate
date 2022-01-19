@@ -9,12 +9,12 @@ const endPoint = require('./routes/api');
 
 
 app.use(express.json());
-//app.use(jwt())
+app.use(jwt())
 
 app.use('/api',endPoint);
 
 
-//app.use(errorHandler)
+app.use(errorHandler)
 const port = 3000;
 
 

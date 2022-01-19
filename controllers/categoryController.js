@@ -2,7 +2,7 @@ const express = require("express");
 const categoryservice = require("../services/categoryService");
 
 exports.GetCategory = async (req, res) => {
-  const response = categoryservice.fetchCategories();
+  const response = await categoryservice.fetchCategories();
   res.send({
     status: true,
     message: "Category Controllerdasın",
@@ -12,17 +12,14 @@ exports.GetCategory = async (req, res) => {
 
 exports.GetCategorybyID = async (req, res) => {
 
-  const response = categoryservice.fetchSingleCategory(req.params.id);
+  const response = await categoryservice.fetchSingleCategory(req.params.id);
 
-  if (response) {
     res.send({
       status: true,
       message: "Single kategori func",
       data: response
     });
-  } else {
-    console.log("response yok");
-  }
+ 
 };
 
 exports.deneme = async (req, res) => {
