@@ -1,8 +1,10 @@
 const http = require('http');
 
 const jwt = require('jsonwebtoken')
+const joi = require('joi')
 
 exports.register =(req,res)=>{
+    
     if(req.body.email==="elif@gmail.com"){
         res.send({
             status:true,
@@ -18,6 +20,19 @@ exports.register =(req,res)=>{
 
 exports.login =(req,res)=>{
 
+    const schema = joi.object().keys({
+        email: joi.string().required(),
+        password : joi.string().min(2).max(10).required()
+
+    })
+
+    const{value,error} = joi.ValidationError(req.body ,schema)
+
+    if(error && error.details){
+        return res.status(400).json(error);
+
+    }
+   
     if(req.body.email==='elif@gmail.com'&& req.body.password==='elif'){
 
         const secret ="deneme"
