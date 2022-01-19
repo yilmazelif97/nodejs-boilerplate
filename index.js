@@ -8,3 +8,6 @@ app.use('/api',endPoint);
 app.listen(3000,()=>{
     console.log('Server is running');
 })
+
+
+//deneme
