@@ -7,7 +7,7 @@ const categoryEndpoint = require('../routes/category/category')
 
 //router.use('/user', userEndpoint)
 
-router.use('/categories', categoryEndpoint)
+router.use('/category', categoryEndpoint)
 
 
 /*router.use('/category', )
