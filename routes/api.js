@@ -5,9 +5,13 @@ let router = express.Router();
 
 const categoryEndpoint = require('../routes/category/category')
 
+const userEndpoint = require('../routes/user/user')
+
 //router.use('/user', userEndpoint)
 
 router.use('/category', categoryEndpoint)
+
+router.use('/user', userEndpoint)
 
 
 /*router.use('/category', )

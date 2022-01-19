@@ -1,5 +1,7 @@
 const http = require('http');
 
+const jwt = require('jsonwebtoken')
+
 exports.fetchUser = (req,res) => {
     let response = {
         status: true
