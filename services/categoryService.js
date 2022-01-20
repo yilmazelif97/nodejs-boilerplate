@@ -20,23 +20,19 @@ exports.fetchCategories = async () => {
 
 exports.fetchSingleCategory = async (id) => {
   try {
+
     console.log(`category servisindeki fetchsingledasın id: ${id}`);
 
     const response = await axios.get(
       `https://api.trendyol.com/sapigw/product-categories/${id}/attributes`
     );
 
-    console.log(response.data);
+    //console.log(response.data);
 
-    if (response) {
-      console.log("reponse var");
-      
-    }
 
-    console.log(req.params);
-    res.send(response.data);
     return response.data;
-  } catch {
+  } 
+  catch {
     return {
       status: false,
       message: "Böyle bir data bulunmamakta",
