@@ -4,6 +4,11 @@ const jwt = require('jsonwebtoken')
 const joi = require('joi');
 const { join } = require('path');
 
+//joi --> parametrelerin validasyonunu doğrulamak için kullanılan lib.
+//jsonwebtoken --> güvenlik  oluşturmak için kullanılan lib. token oluşumunu sağlıyor
+
+//kullanıcıgirişi için kullanılan method. reqdeki parametrelerin aşağıda belirtilen değerlere eşit olması halinde giriş sağlanıyor. Dinamik değil
+
 exports.register =(req,res)=>{
     
     if(req.body.email==="elif@gmail.com"){
@@ -18,6 +23,8 @@ exports.register =(req,res)=>{
         })
     }
 }
+
+//kullanıcı girişi için kullanılan method. joi ile girilen verilerin validasyonu da sağlanıyor. bu validasyondan geçen kullanıcı sisteme login olup tokenı alıyor. eğer değerler doğruysa kişiye özel token oluşturuluyor. (session mantığını düşün)
 
 exports.login =(req,res)=>{
 
@@ -97,6 +104,8 @@ exports.login =(req,res)=>{
 
     
 }
+
+//jwt kontrolü için yazılan method
 
 exports.jwtTest=(req,res)=>{
     res.send({

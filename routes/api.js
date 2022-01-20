@@ -1,13 +1,12 @@
 const express = require('express');
 let router = express.Router();
 
-//const userEndpoint = require('./user/user')
 
 const categoryEndpoint = require('../routes/category/category')
 
 const userEndpoint = require('../routes/user/user')
 
-//router.use('/user', userEndpoint)
+//index sayfasından buraya yönlendirilen url in isteğe göre farklı endpointlere ulaşmasını sağlayan router yapısı. endpoint yapıları spesifik routerlara yönlendiriyor
 
 router.use('/category', categoryEndpoint)
 

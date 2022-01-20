@@ -7,6 +7,8 @@ let userController = require('../../controllers/User')
 // router.put('/',userController.put)
 // router.delete('/',userController.fetchDelete)
 
+//user login,register controlleraına erişimleri sağlayan routerlar
+
 router.post('/login', userController.login)
 router.get('/jwttes', userController.jwtTest)
 router.post('/register',userController.register)

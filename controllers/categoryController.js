@@ -1,6 +1,8 @@
 const express = require("express");
 const categoryservice = require("../services/categoryService");
 
+//tüm kategorileri çekmek için kullanılan method
+
 exports.GetCategory = async (req, res) => {
   const response = await categoryservice.fetchCategories();
   res.send({
@@ -9,6 +11,9 @@ exports.GetCategory = async (req, res) => {
     data: response.categories,
   });
 };
+
+
+//belirli bir id yi çekmek için yazılan meyhod.
 
 exports.GetCategorybyID = async (req, res) => {
 
@@ -23,6 +28,8 @@ exports.GetCategorybyID = async (req, res) => {
 
  
 };
+
+//request verilerinin alınım alınmadığının kontrolü için yazıldı
 
 exports.deneme = async (req, res) => {
 
