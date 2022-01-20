@@ -1,7 +1,8 @@
 const http = require('http');
 
 const jwt = require('jsonwebtoken')
-const joi = require('joi')
+const joi = require('joi');
+const { join } = require('path');
 
 exports.register =(req,res)=>{
     
@@ -24,14 +25,47 @@ exports.login =(req,res)=>{
         email: joi.string().required(),
         password : joi.string().min(2).max(10).required()
 
+    });
+
+    schema.validate(req.body,(err,result)=>{
+
+        if(err){
+            res.send({
+                message:"Error has occured"
+            })
+        }
+        else{
+            res.send({
+                status:true,
+                jwt:{
+                token:token,
+                expiresIn:'7d'
+            }, user
+            })
+        }
+
     })
 
-    const{value,error} = joi.ValidationError(req.body ,schema)
+    //Joi dökümantasyonunda validate in fonksiyon olmadığı yazıyor, o yüzden bu kullanımı yukarıdaki ile upgrade ettim.
 
-    if(error && error.details){
-        return res.status(400).json(error);
+   /* joi.validate(req.body,schema,(err,result)=>{
+        if(err){
+            res.send({
+                message:"Error has occured"
+            })
+        }
+        else{
+            res.send({
+                status:true,
+                jwt:{
+                token:token,
+                expiresIn:'7d'
+            }, user
+            })
+        }
+    })*/
 
-    }
+   
    
     if(req.body.email==='elif@gmail.com'&& req.body.password==='elif'){
 
@@ -106,3 +140,26 @@ exports.fetchDelete = (req,res) => {
     }
     res.status(200).send(response)
 }
+
+
+// function CreateaccountSchema(req,res,next){
+
+//     //create schema object
+//     const schema = {
+//         email: joi.string().required(),
+//         password: joi.string().min(2).max(9).required()
+//     }
+
+//     //validte request body against schema
+//     const {error,value} = schema.validate(req.body,options);
+
+//     if(error){
+//         next(`Validate error: ${error.details.map(x=>x.message).join(', ')}`)
+//     }
+//     else{
+//         //eğer error yoksa req,bodyle validasyona uğrayan değerin yerini değiştirtiyor
+//         req.body=value;
+//         next();
+//     }
+
+

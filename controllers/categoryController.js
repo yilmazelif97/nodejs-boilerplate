@@ -12,13 +12,15 @@ exports.GetCategory = async (req, res) => {
 
 exports.GetCategorybyID = async (req, res) => {
 
+  
   const response = await categoryservice.fetchSingleCategory(req.params.id);
 
     res.send({
-      status: true,
-      message: "Single kategori func",
+      //status: true,
+      //message: "Single kategori func",
       data: response
     });
+
  
 };
 
@@ -32,25 +34,3 @@ exports.deneme = async (req, res) => {
     console.log(send)
 
   };
-
-
-// exports.GetCategorybyIdandName = async (req, res) => {
-//      console.log(req.params.id);
-//      console.log(req.params.name)
-
-        // const send = res.send(req.params)
-  
-//      const response = categoryservice.fetchSingleCategorybyıdandname(send);
-  
-//      if (response) {
-//        console.log("response var");
-//        res.send({
-//          status: true,
-//          message: "Single kategori func",
-//          data: response,
-//        });
-//        });
-//      } else {
-//        console.log("response yok");
-//      }
-//    };
