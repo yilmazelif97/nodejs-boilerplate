@@ -7,6 +7,8 @@ const axios = require('axios');
 const jwt = require('./helper/jwt');
 const errorHandler = require('./helper/errorhandler');
 
+
+
 const endPoint = require('./routes/api');
 
 //post requestlerimizin çalışması için kullanıldı.

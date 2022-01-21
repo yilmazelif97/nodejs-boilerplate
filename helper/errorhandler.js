@@ -5,6 +5,13 @@ module.exports = errorHandler
 
 
 function errorHandler(err,req,res,next){
+
+    const token = req.body.token;
+
+    if(!token){
+        res.send("no token")
+    }
+
     if(typeof(err)==='string'){
         return res.status(400).json({
             message:err
