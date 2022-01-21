@@ -7,7 +7,6 @@ const { join } = require('path');
 //joi --> parametrelerin validasyonunu doğrulamak için kullanılan lib.
 //jsonwebtoken --> güvenlik  oluşturmak için kullanılan lib. token oluşumunu sağlıyor
 
-//kullanıcıgirişi için kullanılan method. reqdeki parametrelerin aşağıda belirtilen değerlere eşit olması halinde giriş sağlanıyor. Dinamik değil
 
 exports.register =(req,res)=>{
     
@@ -53,24 +52,6 @@ exports.login =(req,res)=>{
 
     })
 
-    //Joi dökümantasyonunda validate in fonksiyon olmadığı yazıyor, o yüzden bu kullanımı yukarıdaki ile upgrade ettim.
-
-   /* joi.validate(req.body,schema,(err,result)=>{
-        if(err){
-            res.send({
-                message:"Error has occured"
-            })
-        }
-        else{
-            res.send({
-                status:true,
-                jwt:{
-                token:token,
-                expiresIn:'7d'
-            }, user
-            })
-        }
-    })*/
 
    
    
@@ -151,24 +132,5 @@ exports.fetchDelete = (req,res) => {
 }
 
 
-// function CreateaccountSchema(req,res,next){
-
-//     //create schema object
-//     const schema = {
-//         email: joi.string().required(),
-//         password: joi.string().min(2).max(9).required()
-//     }
-
-//     //validte request body against schema
-//     const {error,value} = schema.validate(req.body,options);
-
-//     if(error){
-//         next(`Validate error: ${error.details.map(x=>x.message).join(', ')}`)
-//     }
-//     else{
-//         //eğer error yoksa req,bodyle validasyona uğrayan değerin yerini değiştirtiyor
-//         req.body=value;
-//         next();
-//     }
 
 
